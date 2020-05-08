@@ -1,9 +1,9 @@
 Intbird Maven Publish
 ========
+my csdn blog:[ https://blog.csdn.net/intbird ]( https://blog.csdn.net/intbird/article/details/105969242 ).
 
 This repo is for publish aar lib for  [intbird repo](http://intbird.world:8081/nexus/content/repositories/releases/).
-after you publish ,every one can who can implementation you lib like this  `$group:$artifact:$version` 
-
+after you publish ,every one can who can implementation you lib ,used like this  `$group:$artifact:$version`
 #### As agreed 
 
 in this project $group = 'intbird.soft.gradle'
