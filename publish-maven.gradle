@@ -1,0 +1,50 @@
+apply plugin: 'maven-publish'
+
+def GroupId = 'intbird.soft.gradle'
+def ArtifactId = 'maven-publish'
+def Version = '1.0.0-SNAPSHOT'
+
+def userName = "repo_user"
+def passWord = "repo_password"
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                // Applies the component for the release build variant.
+                from components.release
+
+                // You can then customize attributes of the publication as shown below.
+                groupId = GroupId
+                artifactId = ArtifactId
+                version = Version
+
+                pom {
+                    name = "Intbird Publish Maven"
+                    description = "Intbird Publish Maven Pom."
+                    url = 'http://intbird.world'
+                }
+            }
+            debug(MavenPublication) {
+                // Applies the component for the debug build variant.
+                from components.debug
+
+                groupId = GroupId
+                artifactId = ArtifactId
+                version = Version
+            }
+        }
+
+        repositories {
+            maven {
+                def releasesRepoUrl = "http://intbird.world:8081/nexus/content/repositories/releases/"
+                def snapshotsRepoUrl = "http://intbird.world:8081/nexus/content/repositories/snapshots/"
+                url = Version.endsWith("SNAPSHOT") ? snapshotsRepoUrl : releasesRepoUrl
+                credentials {
+                    username = userName
+                    password = passWord
+                }
+            }
+        }
+    }
+}

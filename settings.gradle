@@ -1,0 +1,4 @@
+/**
+ * artifactId
+ */
+rootProject.name = 'publish-maven'

@@ -1,0 +1,22 @@
+plugins {
+    id 'java'
+    id 'groovy'
+}
+
+group 'intbird.soft.gradle'
+version '1.0.0'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation gradleApi()
+    implementation localGroovy()
+    implementation 'com.android.tools.build:transform-api:1.5.0'
+}
+
+apply from: 'maven-upload.gradle'
+//apply from: 'publish-maven.gradle'
