@@ -22,7 +22,7 @@ afterEvaluate {
                 pom {
                     name = "Intbird Publish Maven"
                     description = "Intbird Publish Maven Pom."
-                    url = 'http://intbird.world'
+                    url = 'https://intbird.ml'
                 }
             }
             debug(MavenPublication) {
