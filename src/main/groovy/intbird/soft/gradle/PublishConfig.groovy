@@ -11,8 +11,8 @@ class PublishConfig {
     String pomDescription = ""
     String pomUrl = ""
 
-    String repoSnapshot = "http://intbird.world:8081/nexus/content/repositories/snapshots/"
-    String repoRelease = "http://intbird.world:8081/nexus/content/repositories/releases/"
+    String repoSnapshot = "https://intbird.ml/maven/snapshots/"
+    String repoRelease = "https://intbird.ml/maven/releases/"
     String repoName = "repo_user"
     String repoPassword = "repo_password"
 }

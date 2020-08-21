@@ -37,8 +37,8 @@ afterEvaluate {
 
         repositories {
             maven {
-                def releasesRepoUrl = "http://intbird.world:8081/nexus/content/repositories/releases/"
-                def snapshotsRepoUrl = "http://intbird.world:8081/nexus/content/repositories/snapshots/"
+                def releasesRepoUrl = "https://intbird.ml/maven/releases/"
+                def snapshotsRepoUrl = "https://intbird.ml/maven/snapshots/"
                 url = Version.endsWith("SNAPSHOT") ? snapshotsRepoUrl : releasesRepoUrl
                 credentials {
                     username = userName
