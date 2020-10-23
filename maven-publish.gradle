@@ -1,8 +1,8 @@
 apply plugin: 'maven-publish'
 
-def GroupId = 'intbird.soft.gradle'
-def ArtifactId = 'maven-publish'
-def Version = '1.0.0-SNAPSHOT'
+def GroupId = 'net.intbird.soft.gradle'
+def ArtifactId = 'publish-maven'
+def Version = '1.0.0'
 
 def userName = "repo_user"
 def passWord = "repo_password"
@@ -22,7 +22,7 @@ afterEvaluate {
                 pom {
                     name = "Intbird Publish Maven"
                     description = "Intbird Publish Maven Pom."
-                    url = 'http://intbird.world'
+                    url = 'https://intbird.net'
                 }
             }
             debug(MavenPublication) {
@@ -37,8 +37,8 @@ afterEvaluate {
 
         repositories {
             maven {
-                def releasesRepoUrl = "http://intbird.world:8081/nexus/content/repositories/releases/"
-                def snapshotsRepoUrl = "http://intbird.world:8081/nexus/content/repositories/snapshots/"
+                def releasesRepoUrl = "https://intbird.net/maven/releases/"
+                def snapshotsRepoUrl = "https://intbird.net/maven/snapshots/"
                 url = Version.endsWith("SNAPSHOT") ? snapshotsRepoUrl : releasesRepoUrl
                 credentials {
                     username = userName

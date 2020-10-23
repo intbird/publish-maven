@@ -1,83 +1,63 @@
-Intbird Maven Publish
+Publish to maven plugin
 ========
-my csdn blog:[ https://blog.csdn.net/intbird ]( https://blog.csdn.net/intbird/article/details/105969242 ).
 
-This repo is for publish aar lib for  [intbird repo](http://intbird.world:8081/nexus/content/repositories/releases/).
-after you publish ,every one can who can implementation you lib ,used like this  `$group:$artifact:$version`
-#### As agreed 
+This is a gradle plugin, publish aar lib to maven repo.
 
-in this project $group = 'intbird.soft.gradle'
-```
- aar:    $group = 'intbird.soft.lib'   
- plugin: $group = 'intbird.soft.gradle'
-```
+1. website: [https://intbird.net/](https://intbird.net/)
 
-in this project $artifact = 'publish-maven'
-```
-$artifact = your lib project name or your publish config.artifact.  
-```
+2. maven:   [https://intbird.net/maven/](https://intbird.net/maven/)
 
-in this project version = [version](CHANGELOG.md)
+3. coding:  [https://blog.csdn.net/intbird ](https://blog.csdn.net/intbird/article/details/105969242)
 
-v1.0.0 =  v$first(big change).$second(add function).$three(bug fix)
-```
-$version = version
-```
 
 #### How to use it ? 
 
---------
-#### 1 add maven url in root project `build.gradle` file
+
+#### 1.add maven url in root project `build.gradle` file
 ```
 buildscript {
-    ext {
-        publish_version = '1.0.0'
-    }
     repositories {
-        maven { url "http://intbird.world:8081/nexus/content/repositories/public/" }
+        maven { url "https://intbird.net/maven/" }
     }
-    ...
 }
 ```
 
 
 
-#### 2 add classpath in root project `build.gradle` file ,
-$lastVersion = 1.0.0 [click here to see more info](CHANGELOG.md)  
+#### 2.add classpath in root project `build.gradle` file , 
 
 ```
 dependencies {
-    classpath "intbird.soft.gradle:publish-maven:1.0.0"
+    classpath "net.intbird.soft.gradle:publish-maven:$lastVersion"
 }
 ```
 
 
-#### 3 add plugin in your lib project(you want to publish) `build.gradle` file
+#### 3.add plugin in your lib project which you want to publish `build.gradle` file
 ```
 apply plugin: 'publish-maven'
 ```
 
-#### 4 add plugin config in your lib project(you want to publish) `build.gradle` file
+#### 4.add plugin config in your lib project(you want to publish) `build.gradle` file
 ```
 android {
    ...
 }
 
 publishConfig {
-    groupId = 'intbird.soft.lib'
-    artifactId = '$your-lib-name' // use '-' connect
-    version = "1.0.0-SNAPSHOT"
+    groupId = '$package-name'
+    artifactId = '$lib-name'
+    version = "$version"
         
     // if you want publish to your own repository, mdf the flow config
-    repoSnapshot = "http://intbird.world:8081/nexus/content/repositories/snapshots/"
-    repoRelease = "http://intbird.world:8081/nexus/content/repositories/releases/"
+    repoSnapshot = "https://intbird.net/maven/snapshots/"
+    repoRelease = "https://intbird.net/maven/releases/"
     repoName = "repo_user"
     repoPassword = "repo_password"
 }
 ```
 
-#### 5 use gradle sync ,then you can see `publish* tasks in you sidebar gradle`
-open you lib project in terminal and execute gradle task 'publishReleasePublicationToMavenRepository'
+#### 5.after sync,see `publish* tasks in you sidebar gradle`
 ```
 ./gradlew publishReleasePublicationToMavenRepository
 
@@ -89,6 +69,6 @@ see [change log](CHANGELOG.md) has release history.
 
 ```
 dependencies {
-    classpath "intbird.soft.gradle:publish-maven:$lastVersion"
+    classpath "net.intbird.soft.gradle:publish-maven:$lastVersion"
 }
 ```

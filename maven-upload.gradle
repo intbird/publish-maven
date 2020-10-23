@@ -3,8 +3,8 @@ apply plugin: 'maven'
 uploadArchives {
     repositories {
         mavenDeployer {
-            def releasesRepoUrl = "http://intbird.world:8081/nexus/content/repositories/releases/"
-            def snapshotsRepoUrl = "http://intbird.world:8081/nexus/content/repositories/snapshots/"
+            def releasesRepoUrl = "https://intbird.net/maven/releases/"
+            def snapshotsRepoUrl = "https://intbird.net/maven/snapshots/"
             def url = version.endsWith("SNAPSHOT") ? snapshotsRepoUrl : releasesRepoUrl
             repository(url: url) {
                 authentication(userName: "repo_user", password: "repo_password")

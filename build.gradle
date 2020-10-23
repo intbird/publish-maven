@@ -3,8 +3,8 @@ plugins {
     id 'groovy'
 }
 
-group 'intbird.soft.gradle'
-version '1.0.0'
+group 'net.intbird.soft.gradle'
+version '1.0.0-SNAPSHOT'
 
 sourceCompatibility = 1.8
 
@@ -19,4 +19,4 @@ dependencies {
 }
 
 apply from: 'maven-upload.gradle'
-//apply from: 'publish-maven.gradle'
+//apply from: 'maven-publish.gradle'

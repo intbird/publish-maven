@@ -1,4 +1,4 @@
-package intbird.soft.gradle
+package net.intbird.soft.gradle
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project

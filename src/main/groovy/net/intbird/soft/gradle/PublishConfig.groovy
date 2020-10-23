@@ -1,4 +1,4 @@
-package intbird.soft.gradle
+package net.intbird.soft.gradle
 
 class PublishConfig {
     Boolean snapshot = true
@@ -11,8 +11,8 @@ class PublishConfig {
     String pomDescription = ""
     String pomUrl = ""
 
-    String repoSnapshot = "http://intbird.world:8081/nexus/content/repositories/snapshots/"
-    String repoRelease = "http://intbird.world:8081/nexus/content/repositories/releases/"
+    String repoSnapshot = "https://intbird.net/maven/snapshots/"
+    String repoRelease = "https://intbird.net/maven/releases/"
     String repoName = "repo_user"
     String repoPassword = "repo_password"
 }
