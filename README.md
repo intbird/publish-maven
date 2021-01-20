@@ -58,10 +58,14 @@ publishConfig {
 ```
 
 #### 5.after sync,see `publish* tasks in you sidebar gradle`
+![https://github.com/intbird/publish-maven/blob/master/pubshing.png](https://github.com/intbird/publish-maven/blob/master/pubshing.png)
+
+
 ```
 ./gradlew publishReleasePublicationToMavenRepository
 
 ```
+
 
 Release
 --------
