@@ -76,3 +76,64 @@ dependencies {
     classpath "net.intbird.soft.gradle:publish-maven:$lastVersion"
 }
 ```
+
+
+
+
+# source apis:
+
+mvnrepository:  
+https://mvnrepository.com/artifact/org.gradle.api.plugins
+
+## android
+https://developer.android.com/reference/tools/gradle-api/7.3/com/android/build/api/dsl/LibraryPublishing
+https://developer.android.com/reference/tools/gradle-api/7.1/com/android/build/api/dsl/PublishingOptions#summary
+```
+android {
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+            withJavadocJar()
+        }
+
+        multipleVariants {
+            withSourcesJar()
+            withJavadocJar()
+            allVariants()
+        }
+    }
+}
+```
+
+
+## java
+
+https://docs.gradle.org/6.0/userguide/publishing_maven.html#publishing_maven:complete_example
+
+https://docs.gradle.org/6.0/dsl/org.gradle.api.publish.maven.MavenPublication.html#org.gradle.api.publish.maven.MavenPublication:from(org.gradle.api.component.SoftwareComponent)
+
+
+```
+plugins {
+    id 'java-library'
+}
+
+publishing {
+        publications {
+            release(MavenPublication) {
+                // Applies the component for the release build variant.
+                from components.release
+
+                artifact java.withJavadocJar()
+                artifact java.withSourcesJar()
+            }
+        }
+}
+
+
+DefaultJavaPluginExtension javaLibraryPlugin = project.extensions.getByType(DefaultJavaPluginExtension)
+publication.artifact(javaLibraryPlugin.withJavadocJar())
+publication.artifact(javaLibraryPlugin.withSourcesJar())
+                    
+```
+

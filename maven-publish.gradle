@@ -1,4 +1,5 @@
 apply plugin: 'maven-publish'
+apply plugin: 'java-library'
 
 def GroupId = 'net.intbird.soft.gradle'
 def ArtifactId = 'publish-maven'
@@ -8,6 +9,11 @@ def userName = "repo_user"
 def passWord = "repo_password"
 
 afterEvaluate {
+    java {
+        withJavadocJar()
+        withSourcesJar()
+    }
+    
     publishing {
         publications {
             release(MavenPublication) {
@@ -28,6 +34,9 @@ afterEvaluate {
             debug(MavenPublication) {
                 // Applies the component for the debug build variant.
                 from components.debug
+                
+                artifact java.withJavadocJar()
+                artifact java.withSourcesJar()
 
                 groupId = GroupId
                 artifactId = ArtifactId
